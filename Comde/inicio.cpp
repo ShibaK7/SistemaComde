@@ -27,42 +27,22 @@ inicio::~inicio()
 
 void inicio::on_btnEntrar_clicked()
 {
-
-    if(db.open()){
-        Usuario = ui->tusuario->text();
-        Contrasena = ui->tclave->text();
-        QString usuarioGeneral, claveGeneral;
-        QMessageBox::information(this,"Connection", "Database Connection Exitosa");
-        Query = new QSqlQuery();
-        if(Query->exec("SELECT matricula, contrasegna FROM trabajador WHERE matricula ='"+Usuario+"'")){
-            Query->next();
-            usuarioGeneral = Query->value(0).toString();
-            claveGeneral = Query->value(1).toString();
-            Query->finish();
-            qDebug() << usuarioGeneral;
-            qDebug() << claveGeneral;
-        }
-    }
-    else{
-        QMessageBox::information(this,"Not Conected", "Database Connection Rechazada");
-    }
-
-/*
     //Establecemos el usuario y la contraseña de las cajas de texto
     Usuario = ui->tusuario->text();
     Contrasena = ui->tclave->text();
 
-    //Inicio de Sesion
+    //Inicio de Sesion Administrador General
     if(ui->rAdmGeneral->isChecked()){
-        QString error;
-        if(!mDbConection.OpenDatabase(&error)){
-            QMessageBox::critical(this, "error",error);
+        QString error = "No se logro conectar con la Base de Datos";
+        if(!db.open()){
+            QMessageBox::critical(this, "Error",error);
             return;
         }
         else{
             QString usuarioGeneral, claveGeneral;
-            Query = new QSqlQuery();//QUERY PARA BUSQUEDA DE ADMINISTRADOR
-            if(Query->exec("SELECT matricula, contrasegna FROM [COMDE]...[trabajador] WHERE matricula ='"+Usuario+"'")){
+            Query = new QSqlQuery();
+            if(Query->exec("SELECT matricula, contrasegna FROM trabajador WHERE matricula ='"+Usuario+"' and "
+                           "nivel = 1")){
                 Query->next();
                 usuarioGeneral = Query->value(0).toString();
                 claveGeneral = Query->value(1).toString();
@@ -80,8 +60,8 @@ void inicio::on_btnEntrar_clicked()
             }
         }
 
-            //No descomentar esta linea
-            //mDbConection.CloseDatabase();
-        }
-*/
+    }
+
+    //Inicio de Sesion para el administrador por Area
+
 }
