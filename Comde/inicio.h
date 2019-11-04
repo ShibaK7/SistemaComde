@@ -14,6 +14,7 @@
 
 //Incluimos la ventana del administrador General
 #include "admgeneral.h"
+#include "admarea.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class inicio; }

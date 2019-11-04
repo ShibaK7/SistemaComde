@@ -176,5 +176,7 @@ void admGeneral::on_btnActualizar_clicked()
         query.finish();
     }
 
+    cargarEmpleados();
+
 
 }

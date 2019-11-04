@@ -63,5 +63,34 @@ void inicio::on_btnEntrar_clicked()
     }
 
     //Inicio de Sesion para el administrador por Area
+    if(ui->rAdmArea->isChecked()){
+        QString error = "No se logro conectar con la Base de Datos";
+        if(!db.open()){
+            QMessageBox::critical(this, "Error",error);
+            return;
+        }
+        else{
+            QString usuarioGeneral, claveGeneral;
+            Query = new QSqlQuery();
+            if(Query->exec("SELECT matricula, contrasegna FROM trabajador WHERE matricula ='"+Usuario+"' and "
+                           "nivel = 2")){
+                Query->next();
+                usuarioGeneral = Query->value(0).toString();
+                claveGeneral = Query->value(1).toString();
+                Query->finish();
+                if(Usuario == usuarioGeneral && Contrasena == claveGeneral)
+                {
+                    admArea *admA = new admArea(Usuario);
+                    admA->show();
+                }
+                else
+                    QMessageBox::warning(this,"Error","El usuario y la contraseña no coinciden");
+
+                ui->tusuario->clear();
+                ui->tclave->clear();
+            }
+        }
+
+    }
 
 }
