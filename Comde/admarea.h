@@ -23,6 +23,8 @@ class admArea : public QDialog
 public:
     void cargarEmpleados();
     void cargarCursos();
+    void cargarGR();
+    void cargarComboBoxs();
     explicit admArea(QString,QWidget *parent = nullptr);
     ~admArea();
 
@@ -50,6 +52,8 @@ private slots:
     void on_lCursos_itemClicked(QTableWidgetItem *item);
 
     void on_pushButton_clicked();
+
+    void on_aceptarGR_clicked();
 
 private:
     Ui::admArea *ui;

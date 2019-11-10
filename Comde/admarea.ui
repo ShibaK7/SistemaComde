@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1138</width>
+    <width>857</width>
     <height>348</height>
    </rect>
   </property>
@@ -42,7 +42,7 @@
   <widget class="QWidget" name="edicion" native="true">
    <property name="geometry">
     <rect>
-     <x>930</x>
+     <x>120</x>
      <y>60</y>
      <width>731</width>
      <height>281</height>
@@ -275,7 +275,7 @@
   <widget class="QWidget" name="alta" native="true">
    <property name="geometry">
     <rect>
-     <x>930</x>
+     <x>120</x>
      <y>60</y>
      <width>731</width>
      <height>281</height>
@@ -544,7 +544,7 @@
   <widget class="QWidget" name="altaCursos" native="true">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>60</y>
      <width>731</width>
      <height>281</height>
@@ -902,13 +902,13 @@
   <widget class="QWidget" name="gestionCursos" native="true">
    <property name="geometry">
     <rect>
-     <x>930</x>
+     <x>120</x>
      <y>60</y>
      <width>731</width>
      <height>281</height>
     </rect>
    </property>
-   <widget class="QTableWidget" name="lCursos_4">
+   <widget class="QTableWidget" name="cursosP">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -959,20 +959,7 @@
      <string>ID Curso</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lidCurso_4">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>60</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lCurso_20">
+   <widget class="QLabel" name="lCurso_21">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -982,46 +969,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Matricula Profesor</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lmProfesor_4">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>90</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lCurso_21">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>90</y>
-      <width>91</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
      <string>Profesor</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lnomProfesor_4">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>90</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_34">
@@ -1050,50 +998,24 @@
      <string>Horario</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lHorario_4">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>120</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="lCurso_23">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>540</x>
       <y>120</y>
       <width>71</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Locacion</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lLocacion_7">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>120</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
+     <string>Locación</string>
     </property>
    </widget>
    <widget class="QLabel" name="lCurso_24">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>120</y>
+      <x>540</x>
+      <y>90</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -1102,66 +1024,80 @@
      <string>Seccion</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lLocacion_8">
+   <widget class="QLineEdit" name="ctIdCurso">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>120</y>
-      <width>47</width>
-      <height>13</height>
+      <x>400</x>
+      <y>60</y>
+      <width>113</width>
+      <height>20</height>
      </rect>
     </property>
-    <property name="text">
-     <string>TextLabel</string>
+   </widget>
+   <widget class="QComboBox" name="cbSeccion">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>90</y>
+      <width>71</width>
+      <height>22</height>
+     </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_35">
+   <widget class="QComboBox" name="cbLocaciones">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>140</y>
+      <width>181</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbHorarios">
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>150</y>
-      <width>141</width>
-      <height>16</height>
+      <y>140</y>
+      <width>181</width>
+      <height>22</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Creacion Curso</string>
-    </property>
    </widget>
-   <widget class="QLabel" name="label_36">
+   <widget class="QPushButton" name="aceptarGR">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>650</x>
       <y>180</y>
       <width>71</width>
-      <height>16</height>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Nombre Curso</string>
+     <string>Aceptar</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QComboBox" name="cbMatriculas">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>180</y>
-      <width>261</width>
-      <height>20</height>
+      <x>400</x>
+      <y>90</y>
+      <width>131</width>
+      <height>22</height>
      </rect>
     </property>
    </widget>
   </widget>
   <zorder>alta</zorder>
   <zorder>edicion</zorder>
+  <zorder>gestionCursos</zorder>
+  <zorder>altaCursos</zorder>
   <zorder>tbEdicionA</zorder>
   <zorder>tbAlta</zorder>
   <zorder>tbCursos</zorder>
   <zorder>tbProfesores</zorder>
-  <zorder>altaCursos</zorder>
   <zorder>tbCreacionCurso</zorder>
   <zorder>tbGestionarCursos</zorder>
-  <zorder>gestionCursos</zorder>
  </widget>
  <resources/>
  <connections/>

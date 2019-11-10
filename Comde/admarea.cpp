@@ -289,6 +289,8 @@ void admArea::on_tbGestionarCursos_clicked()
 {
     ui->gestionCursos->setVisible(true);
     ui->altaCursos->setVisible(false);
+    cargarGR();
+    cargarComboBoxs();
 }
 
 void admArea::on_tbCreacionCurso_clicked()
@@ -330,11 +332,10 @@ void admArea::on_pushButton_clicked()
                                                        "\nEsta acción no se puede deshacer:"),
                               QMessageBox::Ok | QMessageBox::No);
         if(resp==QMessageBox::Ok){
-            /*QSqlQuery AddCurso;
+            QSqlQuery AddCurso;
             AddCurso.exec("INSERT INTO curso_abierto (idCurso, idArea, nombreCurso) "
                           "values ('"+idCurso+"','"+areaId+"','"+nombreCurso+"')");
-            AddCurso.finish();*/
-            qDebug() <<"Si entro";
+            AddCurso.finish();
         }
 
         ui->cIdCurso->clear();
@@ -343,5 +344,175 @@ void admArea::on_pushButton_clicked()
         QMessageBox::critical(this, "Error","Rellene todos los campos");
     }
 
+
+}
+
+void admArea::cargarGR(){
+    QSqlQuery Cursos;
+    QString IdCurso, Lugar, Instructor;
+    Cursos.exec("SELECT C.idCurso, T.nombre, T.apellidoP, T.apellidoM "
+                "FROM curso AS C INNER JOIN trabajador AS T "
+                "ON T.matricula = C.matriculaProfesor");
+    int numCursos = ui->lCursos->rowCount();
+    for(int i=0; i<numCursos; i++){
+        ui->cursosP->setRowCount(i);
+    }
+    ui->cursosP->setRowCount(0);
+
+    while(Cursos.next()){
+        int c = 0;
+        IdCurso = Cursos.value(0).toString();
+        Instructor = Cursos.value(1).toString()+" "+Cursos.value(2).toString()+" "+Cursos.value(3).toString();
+
+        ui->cursosP->insertRow(ui->cursosP->rowCount());
+        ui->cursosP->setItem(ui->cursosP->rowCount() -1, c, new QTableWidgetItem(IdCurso));
+        c++;
+        ui->cursosP->setItem(ui->cursosP->rowCount() -1, c, new QTableWidgetItem(Instructor));
+    }
+    ui->cursosP->resizeColumnsToContents();
+    Cursos.finish();
+}
+
+void admArea::cargarComboBoxs(){
+
+    QSqlQuery locacion, horario, seccion, profesor;
+    QString lugar, horaInicio, horaFinal, numSeccion, nomProfesor;
+
+    ui->cbArea->clear();
+    ui->cbSeccion->clear();
+    ui->cbHorarios->clear();
+    ui->cbLocaciones->clear();
+    ui->cbMatriculas->clear();
+
+    //Locacion
+    locacion.exec("SELECT lugar FROM locacion");
+
+    while(locacion.next()){
+        lugar = locacion.value(0).toString();
+        ui->cbLocaciones->addItem(lugar);
+    }
+    locacion.finish();
+
+    //Horario
+    horario.exec("SELECT hora_inicio, hora_final FROM horario");
+
+    while(horario.next()){
+        horaInicio = horario.value(0).toString();
+        horaFinal = horario.value(1).toString();
+        ui->cbHorarios->addItem(horaInicio+" - "+horaFinal);
+    }
+    horario.finish();
+
+    //Seccion
+    seccion.exec("SELECT idSeccion FROM seccion");
+
+    while(seccion.next()){
+        numSeccion = seccion.value(0).toString();
+        ui->cbSeccion->addItem(numSeccion);
+    }
+    seccion.finish();
+
+    //Profesores
+    profesor.exec("SELECT t.matricula, t.nombre, t.apellidoP, t.apellidoM "
+                 "FROM curso as c RIGHT JOIN trabajador as t "
+                 "ON c.matriculaProfesor = t.matricula "
+                 "WHERE T.nivel = 3 AND c.matriculaProfesor IS NULL");
+
+    while(profesor.next()){
+        nomProfesor = profesor.value(1).toString()+" "+profesor.value(2).toString()+" "+profesor.value(3).toString();
+        ui->cbMatriculas->addItem(nomProfesor);
+    }
+    profesor.finish();
+
+
+}
+
+void admArea::on_aceptarGR_clicked()
+{
+    QSqlQuery query, profesor, matricula, horario, horario2, locacion, locacion2;
+    QString clave, nomProfesor, amProfesor, apProfesor, nomCompleto, mat, seccion, horaInicio, horaFinal, horarios;
+    QString idHorario, idLocacion, lugar;
+    clave = ui->ctIdCurso->text();
+
+    if(!clave.isEmpty()){
+        QMessageBox::StandardButton resp;
+        resp=QMessageBox::question(this,tr("Aviso"),tr("¿Estas seguro de realizar esta asignación?,"
+                                                       "\nEsta acción no se puede deshacer:"),
+                              QMessageBox::Ok | QMessageBox::No);
+
+        if(resp==QMessageBox::Ok){
+            //Obtenemos la matricula del profesor
+            profesor.exec("SELECT t.matricula, t.nombre, t.apellidoP, t.apellidoM "
+                         "FROM curso as c RIGHT JOIN trabajador as t "
+                         "ON c.matriculaProfesor = t.matricula "
+                         "WHERE T.nivel = 3 AND c.matriculaProfesor IS NULL");
+
+            while(profesor.next()){
+                nomProfesor = profesor.value(1).toString();
+                apProfesor = profesor.value(2).toString();
+                amProfesor = profesor.value(3).toString();
+                nomCompleto = profesor.value(1).toString()+" "+profesor.value(2).toString()+" "+profesor.value(3).toString();
+                if(nomCompleto == ui->cbMatriculas->currentText()){
+                    matricula.exec("SELECT t.matricula FROM curso as c RIGHT JOIN trabajador as t "
+                                   "ON c.matriculaProfesor = t.matricula WHERE t.nivel = 3 "
+                                   "AND c.matriculaProfesor IS NULL AND t.nombre='"+nomProfesor+"' "
+                                   "AND t.apellidoP='"+apProfesor+"' "
+                                   "AND t.apellidoM='"+amProfesor+"'");
+
+                    while(matricula.next()){
+                        mat = matricula.value(0).toString();
+                    }
+                    matricula.finish();
+                }
+            }
+            profesor.finish();
+
+            //Obtenemos el id de la seccion
+            seccion = ui->cbSeccion->currentText();
+
+            //Obtenemos el id del Horario
+            horario.exec("SELECT hora_inicio, hora_final FROM horario");
+
+            while(horario.next()){
+                horaInicio = horario.value(0).toString();
+                horaFinal = horario.value(1).toString();
+                horarios = horaInicio+" - "+horaFinal;
+
+                if(horarios == ui->cbHorarios->currentText()){
+                    horario2.exec("SELECT idHorario FROM horario WHERE hora_inicio = '"+horaInicio+"' "
+                                  "AND hora_final = '"+horaFinal+"'");
+
+                    while(horario2.next()){
+                        idHorario = horario2.value(0).toString();
+                        qDebug() << idHorario;
+                    }
+                }
+            }
+            horario.finish();
+
+            //Obtenemos el id de la locacion
+            locacion.exec("SELECT lugar FROM locacion");
+
+            while(locacion.next()){
+                lugar = locacion.value(0).toString();
+                if(lugar == ui->cbLocaciones->currentText()){
+                    locacion2.exec("SELECT idLocacion FROM locacion WHERE lugar='"+lugar+"'");
+
+                    while(locacion2.next()){
+                        idLocacion = locacion2.value(0).toString();
+                    }
+                    locacion2.finish();
+                }
+            }
+            locacion.finish();
+
+            //Procedemos a realizar el alta del curso
+            query.exec("INSERT INTO curso (idCurso, matriculaProfesor, idHorario, idLocacion, idSeccion)"
+                       "VALUES ('"+clave+"','"+mat+"','"+idHorario+"','"+idLocacion+"','"+seccion+"')");
+            query.finish();
+        }
+    }else{
+        QMessageBox::critical(this, "Error","Rellene todos los campos");
+    }
 
 }
