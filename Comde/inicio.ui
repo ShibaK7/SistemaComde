@@ -6,22 +6,59 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>382</width>
-    <height>175</height>
+    <width>830</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>inicio</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow#inicio{
+	background-color: rgb(255, 255, 255);
+}
+
+#label,#label_2,#label_3,#label_4,#label_5,#label_6,#label_7{
+	font: 63 12pt &quot;Segoe UI Semibold&quot;;
+	color: rgb(0, 114, 175);
+}
+
+QLineEdit{
+	background-color: rgba(0, 0, 0, 0);
+	font: 12pt &quot;Segoe UI Semilight&quot;;
+	color: rgb(136, 136, 136);
+	border: 0px;
+}
+
+#btnEntrar{
+	/*background-color: rgb(0,57,94);
+	background-color: rgb(0,143,189);*/
+	background-color: rgb(0, 92, 150);
+	color: rgb(255, 255, 255);
+	font: 12pt &quot;Segoe UI Semilight&quot;;
+	border-style:solid;
+}
+
+#btnEntrar:hover{
+background-color: rgb(0, 127, 206)
+}
+
+#btnEntrar:pressed{
+background-color: rgb(0, 58, 95);
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="btnEntrar">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>110</y>
-      <width>75</width>
-      <height>23</height>
+      <x>484</x>
+      <y>450</y>
+      <width>271</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 63 12pt &quot;Segoe UI Semibold&quot;;</string>
     </property>
     <property name="text">
      <string>Ingresar</string>
@@ -30,44 +67,64 @@
    <widget class="QLineEdit" name="tusuario">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>20</y>
-      <width>261</width>
-      <height>20</height>
+      <x>480</x>
+      <y>260</y>
+      <width>271</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLineEdit" name="tclave">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>50</y>
-      <width>261</width>
-      <height>20</height>
+      <x>480</x>
+      <y>340</y>
+      <width>271</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="cursorMoveStyle">
+     <enum>Qt::LogicalMoveStyle</enum>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>51</width>
+      <x>480</x>
+      <y>240</y>
+      <width>81</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
+    </property>
     <property name="text">
-     <string>Usuario:</string>
+     <string>Usuario</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>50</y>
-      <width>61</width>
+      <x>480</x>
+      <y>320</y>
+      <width>71</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
     </property>
     <property name="text">
      <string>Contraseña:</string>
@@ -76,8 +133,8 @@
    <widget class="QRadioButton" name="rAdmGeneral">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>80</y>
+      <x>510</x>
+      <y>400</y>
       <width>82</width>
       <height>17</height>
      </rect>
@@ -89,8 +146,8 @@
    <widget class="QRadioButton" name="rAdmArea">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>80</y>
+      <x>640</x>
+      <y>400</y>
       <width>82</width>
       <height>17</height>
      </rect>
@@ -99,18 +156,119 @@
      <string>Adm Area</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>382</width>
-     <height>21</height>
-    </rect>
-   </property>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>401</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="imagenes_src.qrc">:/imagenes/inicio_Fondo.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>370</y>
+      <width>281</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>290</y>
+      <width>281</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>520</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="imagenes_src.qrc">:/imagenes/buap_logob.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>500</y>
+      <width>401</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 145, 189,60);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>50</y>
+      <width>151</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="imagenes_src.qrc">:/imagenes/buap_mlogo.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
  </widget>
- <resources/>
+ <tabstops>
+  <tabstop>tusuario</tabstop>
+  <tabstop>tclave</tabstop>
+  <tabstop>rAdmGeneral</tabstop>
+  <tabstop>rAdmArea</tabstop>
+  <tabstop>btnEntrar</tabstop>
+ </tabstops>
+ <resources>
+  <include location="imagenes_src.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -35,6 +35,7 @@ private:
     Ui::inicio *ui;
     QString Usuario;
     QString Contrasena;
+    bool camposVacios();
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     //ConectaBase mDbConection;

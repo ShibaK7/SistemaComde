@@ -9,7 +9,10 @@ admGeneral::admGeneral(QString user,QWidget *parent) :
     ui->setupUi(this);
     //Mandamos a imprimir el nombre del usuario que ingreso
     qDebug()<< user;
-    ui->edicion->setVisible(false);
+
+    //Se inicializa en el Perfil
+    ui->tabWidget->setCurrentIndex(0);
+    ui->btnPerfil->setStyleSheet("background-color: rgb(0,143,189)");
 }
 
 admGeneral::~admGeneral()
@@ -104,19 +107,6 @@ void admGeneral::on_btnConfirmar_clicked()
 
 }
 
-void admGeneral::on_tbEdicion_clicked()
-{
-    ui->alta->setVisible(false);
-    ui->edicion->setVisible(true);
-    cargarEmpleados();
-}
-
-void admGeneral::on_tbAlta_clicked()
-{
-    ui->alta->setVisible(true);
-    ui->edicion->setVisible(false);
-}
-
 void admGeneral::on_lEmpleados_itemClicked(QTableWidgetItem *item)
 {
     QString Matricula, Nombre, Puesto;
@@ -175,8 +165,41 @@ void admGeneral::on_btnActualizar_clicked()
                    "WHERE matricula = '"+Matricula+"' ");
         query.finish();
     }
-
     cargarEmpleados();
+}
 
+void admGeneral::on_btnPerfil_clicked(bool checked)
+{
+    ui->tabWidget->setCurrentIndex(0);
+    cambiaSeleccion();
+    ui->btnPerfil->setStyleSheet("background-color: rgb(0,143,189)");
+}
 
+void admGeneral::on_btnAlta_clicked(bool checked)
+{
+    ui->tabWidget->setCurrentIndex(1);
+    cambiaSeleccion();
+    ui->btnAlta->setStyleSheet("background-color: rgb(0,143,189)");
+}
+
+void admGeneral::on_btnEdicion_clicked(bool checked)
+{
+    cargarEmpleados();
+    ui->tabWidget->setCurrentIndex(2);
+    cambiaSeleccion();
+    ui->btnEdicion->setStyleSheet("background-color: rgb(0,143,189)");
+}
+
+void admGeneral::cambiaSeleccion(){
+    ui->btnPerfil->setStyleSheet("pressedbackground-color: none");
+    ui->btnAlta->setStyleSheet("background-color: none");
+    ui->btnEdicion->setStyleSheet("background-color: none");
+    ui->btnPerfil->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+    ui->btnAlta->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+    ui->btnEdicion->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+}
+
+void admGeneral::on_btnCerrarSesion_clicked(bool checked)
+{
+    this->close();
 }

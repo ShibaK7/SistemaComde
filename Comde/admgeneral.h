@@ -28,13 +28,19 @@ public:
 private slots:
     void on_btnConfirmar_clicked();
 
-    void on_tbEdicion_clicked();
-
-    void on_tbAlta_clicked();
-
     void on_lEmpleados_itemClicked(QTableWidgetItem *item);
 
     void on_btnActualizar_clicked();
+
+    void on_btnPerfil_clicked(bool checked);
+
+    void on_btnAlta_clicked(bool checked);
+
+    void on_btnEdicion_clicked(bool checked);
+
+    void cambiaSeleccion();
+
+    void on_btnCerrarSesion_clicked(bool checked);
 
 private:
     Ui::admGeneral *ui;
