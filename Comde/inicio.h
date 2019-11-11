@@ -6,7 +6,7 @@
 #include <QDialog>
 #include <QMessageBox>
 
-//Incluimos las librerias para SQLSERVER
+//Incluimos las librerias para SQL
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -14,6 +14,7 @@
 
 //Incluimos la ventana del administrador General
 #include "admgeneral.h"
+#include "admarea.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class inicio; }

@@ -16,17 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    admarea.cpp \
     admgeneral.cpp \
     conectabase.cpp \
     main.cpp \
     inicio.cpp
 
 HEADERS += \
+    admarea.h \
     admgeneral.h \
     conectabase.h \
     inicio.h
 
 FORMS += \
+    admarea.ui \
     admgeneral.ui \
     inicio.ui
 
