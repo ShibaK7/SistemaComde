@@ -35,20 +35,6 @@ private slots:
 
     void on_lEmpleados_itemClicked(QTableWidgetItem *item);
 
-    void on_tbEdicionA_clicked();
-
-    void on_tbAlta_clicked();
-
-    void on_tbProfesores_clicked();
-
-    void on_tbCreacionCurso_clicked();
-
-    void on_tbEdicionCursos_clicked();
-
-    void on_tbCursos_clicked();
-
-    void on_tbGestionarCursos_clicked();
-
     void on_lCursos_itemClicked(QTableWidgetItem *item);
 
     void on_pushButton_clicked();

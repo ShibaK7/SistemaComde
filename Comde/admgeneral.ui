@@ -32,7 +32,7 @@ background-color: rgb(0, 47, 76);
 	font: 12pt &quot;Segoe UI Semilight&quot;;
 	border-style:solid;
 	text-align: left;
-	padding-left:28px;
+	padding-left:58px;
 }
 
 #btnPerfil:hover, #btnAlta:hover, #btnEdicion:hover, #btnCerrarSesion:hover
@@ -45,7 +45,7 @@ background-color: rgb(0, 47, 76);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>312</width>
+     <width>311</width>
      <height>771</height>
     </rect>
    </property>
@@ -98,255 +98,590 @@ background-color: rgb(0, 47, 76);
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>0</y>
-     <width>1041</width>
-     <height>771</height>
+     <x>310</x>
+     <y>-30</y>
+     <width>1051</width>
+     <height>811</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#tab_alta{
+	font: 8pt &quot;MV Boli&quot;;
+}
+
+QLineEdit{
+	background-color: rgba(0, 0, 0, 0);
+	font: 12pt &quot;Segoe UI Semilight&quot;;
+	color: rgb(136, 136, 136);
+	border: 0px;
+}
+
+#btnConfirmar{
+	/*background-color: rgb(0,57,94);
+	background-color: rgb(0,143,189);*/
+	background-color: rgb(0, 92, 150);
+	color: rgb(255, 255, 255);
+	font: 12pt &quot;Segoe UI Semilight&quot;;
+	border-style:solid;
+}
+
+#btnConfirmarr:hover{
+background-color: rgb(0, 127, 206)
+}
+
+#btnConfirmar:pressed{
+background-color: rgb(0, 58, 95);
+}
+</string>
+   </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_perfil">
     <attribute name="title">
      <string>Tab 1</string>
     </attribute>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>0</y>
+       <width>1061</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: rgb(53,135,225);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_FotoPerfil">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>150</y>
+       <width>221</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(222, 222, 222);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QWidget" name="formLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>79</x>
+       <y>500</y>
+       <width>881</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_Edad_2">
+        <property name="styleSheet">
+         <string notr="true">font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>EDAD</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_Edad">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font: 26 18pt &quot;Segoe UI Light&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>Edad</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_Correo_2">
+        <property name="styleSheet">
+         <string notr="true">font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>CORREO        </string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="label_Correo">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font: 26 18pt &quot;Segoe UI Light&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>Correo</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_Celular_2">
+        <property name="styleSheet">
+         <string notr="true">font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>CELULAR</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="label_Celular">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font: 26 18pt &quot;Segoe UI Light&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>Celular</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>410</y>
+       <width>908</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_20">
+        <property name="styleSheet">
+         <string notr="true">font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>NOMBRE</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_Nombre">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font: 26 18pt &quot;Segoe UI Light&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>Nombre</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_21">
+        <property name="styleSheet">
+         <string notr="true">font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>APELLIDO PATERNO</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_AP">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font: 26 18pt &quot;Segoe UI Light&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>Apellido Paterno</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_22">
+        <property name="styleSheet">
+         <string notr="true">font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>APELLIDO MATERNO</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_AM">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font: 26 18pt &quot;Segoe UI Light&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>Apellido Materno</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>280</y>
+       <width>329</width>
+       <height>43</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_Matricula_2">
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>MATRICULA</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_Matricula">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font: 26 18pt &quot;Segoe UI Light&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>Matricula</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_alta">
     <attribute name="title">
      <string>Tab 2</string>
     </attribute>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>40</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Matricula</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tMatricula">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>40</y>
-       <width>201</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>70</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Nombre</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tNombre">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>70</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>70</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Edad</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="sEdad">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>-140</y>
-       <width>42</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>480</x>
-       <y>180</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>(Confirmación)</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>100</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Apellido Materno</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tAmaterno">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>100</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>180</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Contraseña:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>100</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Apellido Paterno:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tApaterno">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>100</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>140</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Email</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tClave">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>180</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>140</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Celular:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>180</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Contraseña:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tCelular">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>140</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tCorreo">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>140</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tClaveC">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>180</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QPushButton" name="btnConfirmar">
      <property name="geometry">
       <rect>
-       <x>540</x>
-       <y>90</y>
-       <width>111</width>
-       <height>23</height>
+       <x>770</x>
+       <y>540</y>
+       <width>201</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 63 12pt &quot;Segoe UI Semibold&quot;;</string>
      </property>
      <property name="text">
       <string>Confirmar</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_23">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>50</y>
+       <width>391</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 24 16pt &quot;Segoe UI Light&quot;;</string>
+     </property>
+     <property name="text">
+      <string>INGRESE SU INFORMACIÓN</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>120</y>
+       <width>921</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Matricula</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
+        </property>
+        <property name="text">
+         <string>Contraseña:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="tAmaterno"/>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLabel" name="label_4">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Apellido Materno</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLineEdit" name="tApaterno"/>
+      </item>
+      <item row="11" column="2">
+       <widget class="QLineEdit" name="tCelular"/>
+      </item>
+      <item row="11" column="1">
+       <widget class="QLabel" name="label_8">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
+        </property>
+        <property name="text">
+         <string>(Confirmación)</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="label_5">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
+        </property>
+        <property name="text">
+         <string>Edad</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QSpinBox" name="sEdad"/>
+      </item>
+      <item row="9" column="2">
+       <widget class="QLabel" name="label_10">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
+        </property>
+        <property name="text">
+         <string>Celular:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QLineEdit" name="tClave"/>
+      </item>
+      <item row="12" column="1">
+       <widget class="QLineEdit" name="tClaveC"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
+        </property>
+        <property name="text">
+         <string>Nombre</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLineEdit" name="tNombre"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="tMatricula"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Apellido Paterno:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLineEdit" name="tCorreo"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>190</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_3">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>270</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_4">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>350</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_5">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>350</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_6">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>420</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_7">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>490</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_8">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>490</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_9">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>420</y>
+       <width>281</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </widget>
@@ -618,6 +953,82 @@ background-color: rgb(0, 47, 76);
     <string>Cerrar Sesión</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_User">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imagenes_src.qrc">:/imagenes/user.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Add">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>190</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imagenes_src.qrc">:/imagenes/add_file.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_Edit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>240</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imagenes_src.qrc">:/imagenes/edit.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>720</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imagenes_src.qrc">:/imagenes/logout.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>label_barraNav</zorder>
   <zorder>label_tipoUsuario</zorder>
   <zorder>btnPerfil</zorder>
@@ -626,7 +1037,13 @@ background-color: rgb(0, 47, 76);
   <zorder>btnEdicion</zorder>
   <zorder>tabWidget</zorder>
   <zorder>btnCerrarSesion</zorder>
+  <zorder>label_User</zorder>
+  <zorder>label_Add</zorder>
+  <zorder>label_Edit</zorder>
+  <zorder>label_18</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagenes_src.qrc"/>
+ </resources>
  <connections/>
 </ui>

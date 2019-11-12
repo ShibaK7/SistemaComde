@@ -42,9 +42,12 @@ private slots:
 
     void on_btnCerrarSesion_clicked(bool checked);
 
+    void inforUsuario(QString mat);
+
 private:
     Ui::admGeneral *ui;
     QSqlQuery *Query;
+    QString idUsuario = "";
 };
 
 #endif // ADMGENERAL_H

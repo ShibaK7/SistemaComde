@@ -5,5 +5,9 @@
         <file>imagenes/buap_logob.png</file>
         <file>imagenes/buap_mlogo.png</file>
         <file>imagenes/buap_logoa.png</file>
+        <file>imagenes/add_file.png</file>
+        <file>imagenes/edit.png</file>
+        <file>imagenes/user.png</file>
+        <file>imagenes/logout.png</file>
     </qresource>
 </RCC>

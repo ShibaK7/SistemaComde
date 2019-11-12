@@ -10,19 +10,6 @@ admArea::admArea(QString user,QWidget *parent) :
     //Mandamos a imprimir el nombre del usuario que ingreso
     qDebug()<< user;
     //Frames de la seccion de Profesores
-    ui->edicion->setVisible(false);
-    ui->alta->setVisible(true);
-    //Botones de la Seccion de Profesores
-    ui->tbAlta->setVisible(true);
-    ui->tbEdicionA->setVisible(true);
-
-    //Frames de la seccion de Cursos
-    ui->altaCursos->setVisible(false);
-    ui->gestionCursos->setVisible(false);
-    //Botones de la seccion de Cursos
-    ui->tbCreacionCurso->setVisible(false);
-    ui->tbGestionarCursos->setVisible(false);
-
 }
 
 admArea::~admArea()
@@ -233,77 +220,6 @@ void admArea::on_lEmpleados_itemClicked(QTableWidgetItem *item)
         ui->cEdad->setText(edad);
     }
     dEmpleados.finish();
-}
-
-void admArea::on_tbEdicionA_clicked()
-{
-    ui->alta->setVisible(false);
-    ui->edicion->setVisible(true);
-    cargarEmpleados();
-}
-
-void admArea::on_tbAlta_clicked()
-{
-    ui->alta->setVisible(true);
-    ui->edicion->setVisible(false);
-}
-
-void admArea::on_tbProfesores_clicked()
-{
-    //Frames de la seccion de Profesores
-    ui->edicion->setVisible(true);
-    ui->alta->setVisible(false);
-    //Botones de la Seccion de Profesores
-    ui->tbAlta->setVisible(true);
-    ui->tbEdicionA->setVisible(true);
-
-    //Frames de la seccion de Cursos
-    ui->altaCursos->setVisible(false);
-    ui->gestionCursos->setVisible(false);
-    //Botones de la seccion de Cursos
-    ui->tbCreacionCurso->setVisible(false);
-    ui->tbGestionarCursos->setVisible(false);
-}
-
-void admArea::on_tbCursos_clicked()
-{
-    //Frames de la seccion de Profesores
-    ui->edicion->setVisible(false);
-    ui->alta->setVisible(false);
-    //Botones de la Seccion de Profesores
-    ui->tbAlta->setVisible(false);
-    ui->tbEdicionA->setVisible(false);
-
-    //Frames de la seccion de Cursos
-    ui->altaCursos->setVisible(true);
-    ui->gestionCursos->setVisible(false);
-    cargarCursos();
-    //Botones de la seccion de Cursos
-    ui->tbCreacionCurso->setVisible(true);
-    ui->tbGestionarCursos->setVisible(true);
-
-
-}
-
-void admArea::on_tbGestionarCursos_clicked()
-{
-    ui->gestionCursos->setVisible(true);
-    ui->altaCursos->setVisible(false);
-    cargarGR();
-    cargarComboBoxs();
-}
-
-void admArea::on_tbCreacionCurso_clicked()
-{
-    ui->gestionCursos->setVisible(false);
-    ui->altaCursos->setVisible(true);
-    cargarCursos();
-}
-
-void admArea::on_tbEdicionCursos_clicked()
-{
-    ui->gestionCursos->setVisible(false);
-    ui->altaCursos->setVisible(false);
 }
 
 void admArea::on_pushButton_clicked()

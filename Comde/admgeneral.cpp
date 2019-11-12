@@ -9,6 +9,7 @@ admGeneral::admGeneral(QString user,QWidget *parent) :
     ui->setupUi(this);
     //Mandamos a imprimir el nombre del usuario que ingreso
     qDebug()<< user;
+    inforUsuario(user);
 
     //Se inicializa en el Perfil
     ui->tabWidget->setCurrentIndex(0);
@@ -197,6 +198,22 @@ void admGeneral::cambiaSeleccion(){
     ui->btnPerfil->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
     ui->btnAlta->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
     ui->btnEdicion->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+}
+
+void admGeneral::inforUsuario(QString id)
+{
+    QSqlQuery datosUsuario;
+    datosUsuario.prepare("SELECT * FROM trabajador WHERE matricula='"+id+"'");
+    datosUsuario.exec();
+    datosUsuario.next();
+    ui->label_Matricula->setText(datosUsuario.value(0).toString());
+    ui->label_Nombre->setText(datosUsuario.value(1).toString());
+    ui->label_AP->setText(datosUsuario.value(2).toString());
+    ui->label_AM->setText(datosUsuario.value(3).toString());
+    ui->label_Correo->setText(datosUsuario.value(4).toString());
+    ui->label_Celular->setText(datosUsuario.value(5).toString());
+    ui->label_Edad->setText(datosUsuario.value(6).toString());
+
 }
 
 void admGeneral::on_btnCerrarSesion_clicked(bool checked)
