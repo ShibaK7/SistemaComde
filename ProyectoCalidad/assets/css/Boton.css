@@ -12,14 +12,9 @@
   /* Style the list items */
   tr td {
     border: 1px solid #ddd;
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6;
+    margin-top: -1px;
     padding: 12px;
-    text-decoration: none;
     font-size: 18px;
-    color: black;
-    display: block;
-    position: relative;
   }
   
   /* Add a light grey background color on hover */
@@ -30,7 +25,6 @@
   /* Style the close button (span) */
   .abrir {
     cursor: pointer;
-    position: absolute;
     top: 50%;
     right: 0%;
     padding: 12px 16px;
@@ -38,4 +32,3 @@
   }
   
   .abrir:hover {background: #bbb;};
-

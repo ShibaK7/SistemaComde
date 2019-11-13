@@ -36,9 +36,11 @@
 </head>
 <body>
 
-    <?php require 'partials/header.php'?>
+    <?php require 'partials/header2.php'?>
 
-    <h1>Login</h1>
+    <br><br><br>
+    <img src="assets/buap_mlogo.png" width="140" height="140">
+    <h1>Inicio de Sesión</h1>
 
     <?php if(!empty($message)) : ?>
         <p><?= $message?></p>
@@ -51,9 +53,10 @@
     } else {
         ?>
         <form action="logica/login.php" method="post">
-            <input type="text" id="usuario" name="usuario" placeholder="Introduce tu matrícula">
+            <input type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                   id="usuario" name="usuario"  placeholder="Introduce tu matrícula">
             <input type="password" id="password" name="password" placeholder="Introduce tu contraseña">
-            <input type="submit" id="enviar" value="Enviar">
+            <input type="submit" id="enviar" value="Ingresar">
         </form>
         <?php
     }

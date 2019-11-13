@@ -23,6 +23,7 @@
     <title>Lista</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/botones.css">
 </head>
 <body>
 
@@ -33,9 +34,17 @@
 
     <?php require 'partials/header.php'?>
 
-    <a href="index.php">Cerrar sesión</a>
-    <br>
-    <a href="clases.php">Regresar</a>
+    <div class="w3-container">
+        <form action="index.php">
+            <input id="byebye" class="cerrar" type="submit" value="Cerrar sesión" />
+        </form>
+
+        <form action="clases.php">
+            <input id="byebye" class="cerrar" type="submit" value="Regresar" />
+        </form>
+    </div>
+
+    
 
     <table>
         <thead>
