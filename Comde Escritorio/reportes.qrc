@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/reporte">
+        <file>imagenes/templateReportes.png</file>
+    </qresource>
+</RCC>

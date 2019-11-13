@@ -10,6 +10,8 @@ admArea::admArea(QString user,QWidget *parent) :
     //Mandamos a imprimir el nombre del usuario que ingreso
     qDebug()<< user;
     //Frames de la seccion de Profesores
+    ui->tabWidget->setCurrentIndex(0);
+
 }
 
 admArea::~admArea()
@@ -431,4 +433,61 @@ void admArea::on_aceptarGR_clicked()
         QMessageBox::critical(this, "Error","Rellene todos los campos");
     }
 
+}
+
+void admArea::on_btnPerfil_clicked()
+{
+    cambiaSeleccion();
+    ui->tabWidget->setCurrentIndex(0);
+    ui->btnPerfil->setStyleSheet("background-color: rgb(0,143,189)");
+}
+
+void admArea::on_btnAlta_clicked()
+{
+    cambiaSeleccion();
+    cargarEmpleados();
+    ui->tabWidget->setCurrentIndex(1);
+    ui->btnAlta->setStyleSheet("background-color: rgb(0,143,189)");
+}
+
+void admArea::on_btnEdicion_clicked()
+{
+    cambiaSeleccion();
+    ui->tabWidget->setCurrentIndex(2);
+    ui->btnEdicion->setStyleSheet("background-color: rgb(0,143,189)");
+}
+
+void admArea::on_btnAltaCursos_clicked()
+{
+    cambiaSeleccion();
+    cargarCursos();
+    ui->tabWidget->setCurrentIndex(3);
+    ui->btnAltaCursos->setStyleSheet("background-color: rgb(0,143,189)");
+}
+
+void admArea::on_btnGestionarRecursos_clicked()
+{
+    cambiaSeleccion();
+    cargarGR();
+    cargarComboBoxs();
+    ui->tabWidget->setCurrentIndex(4);
+    ui->btnGestionarRecursos->setStyleSheet("background-color: rgb(0,143,189)");
+}
+
+void admArea::cambiaSeleccion(){
+    ui->btnPerfil->setStyleSheet("pressedbackground-color: none");
+    ui->btnAlta->setStyleSheet("background-color: none");
+    ui->btnEdicion->setStyleSheet("background-color: none");
+    ui->btnAltaCursos->setStyleSheet("background-color: none");
+    ui->btnGestionarRecursos->setStyleSheet("background-color: none");
+    ui->btnPerfil->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+    ui->btnAlta->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+    ui->btnEdicion->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+    ui->btnAltaCursos->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+    ui->btnGestionarRecursos->setStyleSheet("QButton:hover{background-color: rgb(255, 255, 255,80);}");
+}
+
+void admArea::on_btnCerrarSesion_clicked()
+{
+    this->close();
 }

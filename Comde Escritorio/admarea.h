@@ -41,6 +41,20 @@ private slots:
 
     void on_aceptarGR_clicked();
 
+    void on_btnPerfil_clicked();
+
+    void on_btnAlta_clicked();
+
+    void on_btnEdicion_clicked();
+
+    void on_btnAltaCursos_clicked();
+
+    void on_btnGestionarRecursos_clicked();
+
+    void cambiaSeleccion();
+
+    void on_btnCerrarSesion_clicked();
+
 private:
     Ui::admArea *ui;
 };

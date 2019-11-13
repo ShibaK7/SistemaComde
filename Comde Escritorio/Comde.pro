@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql widgets charts core
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -39,4 +39,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    imagenes_src.qrc
+    imagenes_src.qrc \
+    reportes.qrc

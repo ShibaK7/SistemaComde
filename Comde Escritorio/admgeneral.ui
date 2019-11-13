@@ -100,23 +100,19 @@ background-color: rgb(0, 47, 76);
     <rect>
      <x>310</x>
      <y>-30</y>
-     <width>1051</width>
+     <width>1071</width>
      <height>811</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#tab_alta{
-	font: 8pt &quot;MV Boli&quot;;
-}
-
-QLineEdit{
+    <string notr="true">QLineEdit{
 	background-color: rgba(0, 0, 0, 0);
 	font: 12pt &quot;Segoe UI Semilight&quot;;
 	color: rgb(136, 136, 136);
 	border: 0px;
 }
 
-#btnConfirmar{
+#btnConfirmar,#btnActualizar,#pushButton{
 	/*background-color: rgb(0,57,94);
 	background-color: rgb(0,143,189);*/
 	background-color: rgb(0, 92, 150);
@@ -125,17 +121,17 @@ QLineEdit{
 	border-style:solid;
 }
 
-#btnConfirmarr:hover{
+#btnConfirmarr:hover,#btnActualizar:hover,#pushButton:hover{
 background-color: rgb(0, 127, 206)
 }
 
-#btnConfirmar:pressed{
+#btnConfirmar:pressed,#btnActualizar:pressed,#pushButton:pressed{
 background-color: rgb(0, 58, 95);
 }
 </string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab_perfil">
     <attribute name="title">
@@ -260,7 +256,7 @@ background-color: rgb(0, 58, 95);
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -338,7 +334,7 @@ background-color: rgb(0, 58, 95);
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>330</x>
@@ -374,6 +370,277 @@ background-color: rgb(0, 58, 95);
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>910</x>
+       <y>330</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Consultar</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>270</y>
+       <width>160</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="0">
+       <widget class="QRadioButton" name="radioButton">
+        <property name="text">
+         <string>Cursos</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_Matricula_3">
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
+        </property>
+        <property name="text">
+         <string>REPORTES</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QRadioButton" name="radioButton_2">
+        <property name="text">
+         <string>Horario</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_edicion">
+    <attribute name="title">
+     <string>Tab 3</string>
+    </attribute>
+    <widget class="QTableWidget" name="lEmpleados">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>150</y>
+       <width>471</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;Microsoft YaHei&quot;;</string>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="defaultDropAction">
+      <enum>Qt::IgnoreAction</enum>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+     <column>
+      <property name="text">
+       <string>Clave</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nombre</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Area</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="btnActualizar">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>480</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#btnConfirmarr:hover,#btnActualizar:hover{
+background-color: rgb(0, 127, 206)
+}
+
+#btnConfirmar:pressed,#btnActualizar:pressed{
+background-color: rgb(0, 58, 95);
+}</string>
+     </property>
+     <property name="text">
+      <string>Actualizar</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>160</y>
+       <width>401</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Matricula</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="cEdad">
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;Segoe UI Semilight&quot;;
+color: rgb(136, 136, 136);</string>
+        </property>
+        <property name="text">
+         <string>cEdad</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Nombre</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="cMatricula">
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;Segoe UI Semilight&quot;;
+color: rgb(136, 136, 136);</string>
+        </property>
+        <property name="text">
+         <string>cMatricula</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLineEdit" name="cNombre"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLineEdit" name="cAP"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_15">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="label_14">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Apellido Materno</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_17">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Edad</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="cAM"/>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLineEdit" name="cCorreo"/>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLabel" name="label_16">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Celular</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLineEdit" name="cCelular"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_13">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Apellido Paterno</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_24">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>60</y>
+       <width>391</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 24 16pt &quot;Segoe UI Light&quot;;</string>
+     </property>
+     <property name="text">
+      <string>ACTUALIZE LA INFORMACIÓN</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_alta">
@@ -685,234 +952,6 @@ color: rgb(0, 109, 159);
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_edicion">
-    <attribute name="title">
-     <string>Tab 3</string>
-    </attribute>
-    <widget class="QTableWidget" name="lEmpleados">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>301</width>
-       <height>231</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 10pt &quot;Microsoft YaHei&quot;;</string>
-     </property>
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
-     <property name="defaultDropAction">
-      <enum>Qt::IgnoreAction</enum>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
-     </property>
-     <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectRows</enum>
-     </property>
-     <property name="sortingEnabled">
-      <bool>true</bool>
-     </property>
-     <column>
-      <property name="text">
-       <string>Clave</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Nombre</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Area</string>
-      </property>
-     </column>
-    </widget>
-    <widget class="QPushButton" name="btnActualizar">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>210</y>
-       <width>111</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Actualizar</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="cAM">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>140</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="cNombre">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>110</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>50</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Matricula</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="cAP">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>140</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_16">
-     <property name="geometry">
-      <rect>
-       <x>560</x>
-       <y>170</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Celular</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="cCelular">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>170</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="cCorreo">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>170</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_13">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>140</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Apellido Paterno</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="cMatricula">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>50</y>
-       <width>111</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>cMatricula</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="cEdad">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>80</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>cEdad</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_12">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>110</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Nombre</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>170</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Email</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_17">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>80</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Edad</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_14">
-     <property name="geometry">
-      <rect>
-       <x>560</x>
-       <y>140</y>
-       <width>81</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Apellido Materno</string>
-     </property>
-    </widget>
-   </widget>
   </widget>
   <widget class="QPushButton" name="btnAlta">
    <property name="geometry">
@@ -944,7 +983,7 @@ color: rgb(0, 109, 159);
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>700</y>
+     <y>350</y>
      <width>311</width>
      <height>51</height>
     </rect>
@@ -1014,7 +1053,7 @@ color: rgb(0, 109, 159);
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>720</y>
+     <y>370</y>
      <width>21</width>
      <height>21</height>
     </rect>

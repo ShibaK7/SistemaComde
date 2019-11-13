@@ -11,6 +11,23 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
+//Para las gráficas
+#include <QThread>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtCharts/QChartView>
+#include <QtCharts/QBarSeries>
+#include <QtCharts/QBarSet>
+#include <QtCharts/QLegend>
+#include <QtCharts/QBarCategoryAxis>
+
+//Reportes
+#include <QPdfWriter>
+#include <QPainter>
+#include <QDesktopServices>
+#include <QBrush>
+
+
 
 namespace Ui {
 class admGeneral;
@@ -44,10 +61,13 @@ private slots:
 
     void inforUsuario(QString mat);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::admGeneral *ui;
     QSqlQuery *Query;
-    QString idUsuario = "";
+    QString Usuario;
+
 };
 
 #endif // ADMGENERAL_H
