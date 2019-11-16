@@ -55,6 +55,8 @@ private slots:
 
     void on_btnCerrarSesion_clicked();
 
+    void inforUsuario(QString mat);
+
 private:
     Ui::admArea *ui;
 };

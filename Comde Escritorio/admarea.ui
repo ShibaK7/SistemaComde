@@ -73,7 +73,7 @@ background-color: rgb(0, 58, 95);
 </string>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tab_Perfil">
     <attribute name="title">
@@ -326,10 +326,10 @@ background-color: rgb(0, 58, 95);
     <widget class="QPushButton" name="btnConfirmar">
      <property name="geometry">
       <rect>
-       <x>840</x>
-       <y>590</y>
-       <width>111</width>
-       <height>23</height>
+       <x>830</x>
+       <y>570</y>
+       <width>151</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -357,28 +357,48 @@ background-color: rgb(0, 58, 95);
       <rect>
        <x>60</x>
        <y>120</y>
-       <width>861</width>
-       <height>401</height>
+       <width>921</width>
+       <height>421</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="7" column="1">
-       <widget class="QLineEdit" name="tCelular"/>
-      </item>
-      <item row="6" column="1">
-       <widget class="QLabel" name="label_10">
-        <property name="styleSheet">
-         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
-color: rgb(0, 109, 159);
-</string>
-        </property>
-        <property name="text">
-         <string>Celular:</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+      <item row="5" column="0">
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="Line" name="line_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="Line" name="line_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="Line" name="line_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="1">
+       <widget class="Line" name="line_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="tCelular"/>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label">
@@ -395,13 +415,31 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
-      <item row="9" column="0">
-       <widget class="QLineEdit" name="tClave"/>
-      </item>
-      <item row="7" column="0">
+      <item row="10" column="0">
        <widget class="QLineEdit" name="tCorreo"/>
       </item>
-      <item row="4" column="0">
+      <item row="9" column="1">
+       <widget class="QLabel" name="label_10">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Celular:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0">
+       <widget class="QLineEdit" name="tClave"/>
+      </item>
+      <item row="4" column="1">
+       <widget class="QSpinBox" name="sEdad"/>
+      </item>
+      <item row="6" column="0">
        <widget class="QLabel" name="label_3">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
@@ -416,28 +454,10 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
-      <item row="9" column="1">
+      <item row="13" column="1">
        <widget class="QLineEdit" name="tClaveC"/>
       </item>
-      <item row="3" column="1">
-       <widget class="QSpinBox" name="sEdad"/>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="styleSheet">
-         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
-color: rgb(0, 109, 159);
-</string>
-        </property>
-        <property name="text">
-         <string>Contraseña:</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
+      <item row="12" column="1">
        <widget class="QLabel" name="label_8">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
@@ -452,7 +472,22 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="12" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Contraseña:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
        <widget class="QLabel" name="label_2">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
@@ -467,10 +502,10 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QLineEdit" name="tNombre"/>
+      <item row="7" column="0">
+       <widget class="QLineEdit" name="tApaterno"/>
       </item>
-      <item row="2" column="1">
+      <item row="3" column="1">
        <widget class="QLabel" name="label_5">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
@@ -485,28 +520,13 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
+      <item row="4" column="0">
+       <widget class="QLineEdit" name="tNombre"/>
+      </item>
       <item row="1" column="0">
        <widget class="QLineEdit" name="tMatricula"/>
       </item>
-      <item row="5" column="0">
-       <widget class="QLineEdit" name="tApaterno"/>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_9">
-        <property name="styleSheet">
-         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
-color: rgb(0, 109, 159);
-</string>
-        </property>
-        <property name="text">
-         <string>Email</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
+      <item row="6" column="1">
        <widget class="QLabel" name="label_4">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
@@ -521,114 +541,46 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
-      <item row="5" column="1">
+      <item row="7" column="1">
        <widget class="QLineEdit" name="tAmaterno"/>
       </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0">
+       <widget class="Line" name="line_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="1">
+       <widget class="Line" name="line_9">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
      </layout>
-    </widget>
-    <widget class="Line" name="line_2">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>190</y>
-       <width>271</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="line_3">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>270</y>
-       <width>271</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="line_4">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>360</y>
-       <width>271</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="line_5">
-     <property name="geometry">
-      <rect>
-       <x>490</x>
-       <y>360</y>
-       <width>271</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="line_6">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>440</y>
-       <width>271</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="line_7">
-     <property name="geometry">
-      <rect>
-       <x>490</x>
-       <y>439</y>
-       <width>271</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="line_8">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>515</y>
-       <width>271</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="line_9">
-     <property name="geometry">
-      <rect>
-       <x>490</x>
-       <y>516</y>
-       <width>271</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_ProfesorEdicion">
@@ -681,10 +633,10 @@ color: rgb(0, 109, 159);
     <widget class="QPushButton" name="btnActualizar">
      <property name="geometry">
       <rect>
-       <x>850</x>
-       <y>430</y>
-       <width>141</width>
-       <height>31</height>
+       <x>840</x>
+       <y>480</y>
+       <width>151</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -697,18 +649,18 @@ color: rgb(0, 109, 159);
        <x>520</x>
        <y>130</y>
        <width>471</width>
-       <height>261</height>
+       <height>326</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="7" column="0">
-       <widget class="QLineEdit" name="cAP"/>
-      </item>
-      <item row="9" column="0">
+      <item row="11" column="0">
        <widget class="QLineEdit" name="cCorreo"/>
       </item>
       <item row="5" column="0">
        <widget class="QLineEdit" name="cNombre"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLineEdit" name="cAP"/>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="label_12">
@@ -745,18 +697,6 @@ color: rgb(136, 136, 136);</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="label_15">
-        <property name="styleSheet">
-         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
-color: rgb(0, 109, 159);
-</string>
-        </property>
-        <property name="text">
-         <string>Email</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
        <widget class="QLabel" name="cMatricula">
         <property name="styleSheet">
@@ -768,7 +708,19 @@ color: rgb(136, 136, 136);</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="0">
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_15">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
        <widget class="QLabel" name="label_13">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
@@ -779,6 +731,9 @@ color: rgb(0, 109, 159);
          <string>Apellido Paterno</string>
         </property>
        </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="cAM"/>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_11">
@@ -792,7 +747,7 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
+      <item row="7" column="1">
        <widget class="QLabel" name="label_14">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
@@ -804,10 +759,7 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
-       <widget class="QLineEdit" name="cAM"/>
-      </item>
-      <item row="8" column="1">
+      <item row="10" column="1">
        <widget class="QLabel" name="label_16">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
@@ -819,8 +771,47 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
+      <item row="11" column="1">
+       <widget class="QLineEdit" name="cCelular">
+        <property name="maxLength">
+         <number>32768</number>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="Line" name="line_19">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="Line" name="line_21">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="1">
+       <widget class="Line" name="line_20">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
       <item row="9" column="1">
-       <widget class="QLineEdit" name="cCelular"/>
+       <widget class="Line" name="line_22">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="Line" name="line_23">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -849,9 +840,9 @@ color: rgb(0, 109, 159);
      <property name="geometry">
       <rect>
        <x>180</x>
-       <y>40</y>
+       <y>50</y>
        <width>701</width>
-       <height>231</height>
+       <height>221</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -891,9 +882,9 @@ color: rgb(0, 109, 159);
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>850</x>
-       <y>670</y>
-       <width>111</width>
+       <x>810</x>
+       <y>680</y>
+       <width>131</width>
        <height>31</height>
       </rect>
      </property>
@@ -904,10 +895,10 @@ color: rgb(0, 109, 159);
     <widget class="QWidget" name="gridLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>120</x>
        <y>300</y>
-       <width>651</width>
-       <height>346</height>
+       <width>821</width>
+       <height>421</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
@@ -1003,7 +994,7 @@ color: rgb(0, 109, 159);
 </string>
         </property>
         <property name="text">
-         <string>Seccion                                              </string>
+         <string>Seccion                                                 </string>
         </property>
        </widget>
       </item>
@@ -1041,7 +1032,7 @@ color: rgb(0, 109, 159);
 </string>
         </property>
         <property name="text">
-         <string>Hora Final</string>
+         <string>Hora Final                                                           </string>
         </property>
        </widget>
       </item>
@@ -1195,6 +1186,9 @@ color: rgb(136, 136, 136);</string>
       </item>
      </layout>
     </widget>
+    <zorder>lCursos</zorder>
+    <zorder>gridLayoutWidget_3</zorder>
+    <zorder>pushButton</zorder>
    </widget>
    <widget class="QWidget" name="tab_CursoRecurso">
     <attribute name="title">
@@ -1243,7 +1237,7 @@ color: rgb(136, 136, 136);</string>
       <rect>
        <x>810</x>
        <y>320</y>
-       <width>101</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
@@ -1257,7 +1251,7 @@ color: rgb(136, 136, 136);</string>
        <x>560</x>
        <y>80</y>
        <width>371</width>
-       <height>191</height>
+       <height>204</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">

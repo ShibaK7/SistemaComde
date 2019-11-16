@@ -31,6 +31,7 @@ admGeneral::admGeneral(QString user,QWidget *parent) :
     //Mandamos a imprimir el nombre del usuario que ingreso
     qDebug()<< user;
     inforUsuario(user);
+    cargarEmpleados();
     Usuario = user;
 
     //Se inicializa en el Perfil
@@ -235,7 +236,6 @@ void admGeneral::inforUsuario(QString id)
     ui->label_Correo->setText(datosUsuario.value(4).toString());
     ui->label_Celular->setText(datosUsuario.value(5).toString());
     ui->label_Edad->setText(datosUsuario.value(6).toString());
-
 }
 
 void admGeneral::on_btnCerrarSesion_clicked(bool checked)
