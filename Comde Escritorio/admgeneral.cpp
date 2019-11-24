@@ -431,3 +431,8 @@ void admGeneral::on_pushButton_clicked()
         QDesktopServices::openUrl(QUrl::fromLocalFile("ReporteHorarios.pdf"));
     }
 }
+
+void admGeneral::on_btnAlta_clicked()
+{
+    cargarEmpleados();
+}

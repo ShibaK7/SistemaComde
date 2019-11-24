@@ -131,7 +131,7 @@ background-color: rgb(0, 58, 95);
 </string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tab_perfil">
     <attribute name="title">
@@ -731,15 +731,88 @@ color: rgb(0, 109, 159);
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
+      <item row="9" column="1">
+       <widget class="Line" name="line_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_2">
         <property name="styleSheet">
          <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
-color: rgb(0, 109, 159);
-</string>
+color: rgb(0, 109, 159);</string>
         </property>
         <property name="text">
-         <string>Matricula</string>
+         <string>Nombre</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLineEdit" name="tApaterno"/>
+      </item>
+      <item row="14" column="0">
+       <widget class="QLineEdit" name="tCorreo"/>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="tAmaterno"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="2">
+       <widget class="Line" name="line_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="0">
+       <widget class="QLineEdit" name="tClave"/>
+      </item>
+      <item row="18" column="0">
+       <widget class="Line" name="line_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="tMatricula"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="Line" name="line_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="1">
+       <widget class="Line" name="line_9">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLineEdit" name="tNombre"/>
+      </item>
+      <item row="16" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);</string>
+        </property>
+        <property name="text">
+         <string>Contraseña:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -761,6 +834,21 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
+color: rgb(0, 109, 159);
+</string>
+        </property>
+        <property name="text">
+         <string>Matricula</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
       <item row="13" column="0">
        <widget class="QLabel" name="label_9">
         <property name="styleSheet">
@@ -775,29 +863,6 @@ color: rgb(0, 109, 159);</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="1">
-       <widget class="QLineEdit" name="tAmaterno"/>
-      </item>
-      <item row="16" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="styleSheet">
-         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
-color: rgb(0, 109, 159);</string>
-        </property>
-        <property name="text">
-         <string>Contraseña:</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLineEdit" name="tApaterno"/>
-      </item>
-      <item row="16" column="2">
-       <widget class="QLineEdit" name="tCelular"/>
-      </item>
       <item row="16" column="1">
        <widget class="QLabel" name="label_8">
         <property name="styleSheet">
@@ -809,6 +874,13 @@ color: rgb(0, 109, 159);</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="0">
+       <widget class="Line" name="line_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
@@ -826,6 +898,9 @@ color: rgb(0, 109, 159);</string>
         </property>
        </widget>
       </item>
+      <item row="4" column="2">
+       <widget class="QSpinBox" name="sEdad"/>
+      </item>
       <item row="3" column="2">
        <widget class="QLabel" name="label_5">
         <property name="styleSheet">
@@ -840,31 +915,12 @@ color: rgb(0, 109, 159);</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="2">
-       <widget class="QSpinBox" name="sEdad"/>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLineEdit" name="tNombre"/>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="styleSheet">
-         <string notr="true">font: 8pt &quot;Segoe UI Semibold&quot;;
-color: rgb(0, 109, 159);</string>
-        </property>
-        <property name="text">
-         <string>Nombre</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+      <item row="9" column="0">
+       <widget class="Line" name="line_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
-      </item>
-      <item row="17" column="1">
-       <widget class="QLineEdit" name="tClaveC"/>
-      </item>
-      <item row="17" column="0">
-       <widget class="QLineEdit" name="tClave"/>
       </item>
       <item row="7" column="0">
        <widget class="QLabel" name="label_3">
@@ -881,67 +937,11 @@ color: rgb(0, 109, 159);
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLineEdit" name="tMatricula"/>
+      <item row="17" column="1">
+       <widget class="QLineEdit" name="tClaveC"/>
       </item>
-      <item row="14" column="0">
-       <widget class="QLineEdit" name="tCorreo"/>
-      </item>
-      <item row="5" column="0">
-       <widget class="Line" name="line_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="Line" name="line_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="Line" name="line_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="0">
-       <widget class="Line" name="line_6">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="2">
-       <widget class="Line" name="line_8">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="Line" name="line_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="0">
-       <widget class="Line" name="line_7">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="1">
-       <widget class="Line" name="line_9">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
+      <item row="14" column="2">
+       <widget class="QLineEdit" name="tCelular"/>
       </item>
      </layout>
     </widget>
@@ -1062,13 +1062,13 @@ color: rgb(0, 109, 159);
     <bool>true</bool>
    </property>
   </widget>
+  <zorder>tabWidget</zorder>
   <zorder>label_barraNav</zorder>
   <zorder>label_tipoUsuario</zorder>
   <zorder>btnPerfil</zorder>
   <zorder>line</zorder>
   <zorder>btnAlta</zorder>
   <zorder>btnEdicion</zorder>
-  <zorder>tabWidget</zorder>
   <zorder>btnCerrarSesion</zorder>
   <zorder>label_User</zorder>
   <zorder>label_Add</zorder>

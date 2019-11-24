@@ -63,6 +63,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_btnAlta_clicked();
+
 private:
     Ui::admGeneral *ui;
     QSqlQuery *Query;
