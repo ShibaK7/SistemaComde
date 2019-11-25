@@ -10,9 +10,10 @@ admArea::admArea(QString user,QWidget *parent) :
     //Mandamos a imprimir el nombre del usuario que ingreso
     qDebug()<< user;
     inforUsuario(user);
-    //Frames de la seccion de Profesores
-    ui->tabWidget->setCurrentIndex(0);
 
+    //Se inicializa en el Perfil
+    ui->tabWidget->setCurrentIndex(0);
+    ui->btnPerfil->setStyleSheet("background-color: rgb(0,143,189)");
 }
 
 admArea::~admArea()
@@ -51,10 +52,11 @@ void admArea::cargarCursos(){
 
 void admArea::cargarEmpleados(){
     QSqlQuery Empleados;
-    QString Matricula, Nombre, Puesto;
-    Empleados.exec("SELECT T.matricula, T.nombre, T.apellidoP, T.apellidoM,T.correoE, T.celular, T.edad, NT.puesto "
-                   "FROM trabajador AS T INNER JOIN nivel_trabajador AS NT ON T.nivel = NT.nivelTrabajador "
-                   "WHERE nivel = 3");
+    QString Matricula, Nombre, Puesto, EstadoP;
+    Empleados.exec("SELECT T.matricula, T.nombre, T.apellidoP, T.apellidoM,T.correoE, T.celular, T.edad, NT.puesto, E.estado FROM trabajador AS T "
+                   "INNER JOIN nivel_trabajador AS NT ON T.nivel = NT.nivelTrabajador "
+                   "INNER JOIN estado as E ON T.estadoTrabajador=E.claveEstado "
+                   "WHERE nivel = 3 ORDER BY E.estado");
 
     int numEmpleados = ui->lEmpleados->rowCount();
     for(int i=0; i<numEmpleados;i++){
@@ -67,6 +69,7 @@ void admArea::cargarEmpleados(){
         Matricula = Empleados.value(0).toString();
         Nombre = Empleados.value(1).toString()+" "+Empleados.value(2).toString()+" "+Empleados.value(3).toString();
         Puesto = Empleados.value(7).toString();
+        EstadoP = Empleados.value(8).toString();
 
         ui->lEmpleados->insertRow(ui->lEmpleados->rowCount());
         ui->lEmpleados->setItem(ui->lEmpleados->rowCount() -1, c, new QTableWidgetItem(Matricula));
@@ -74,10 +77,28 @@ void admArea::cargarEmpleados(){
         ui->lEmpleados->setItem(ui->lEmpleados->rowCount() -1, c, new QTableWidgetItem(Nombre));
         c++;
         ui->lEmpleados->setItem(ui->lEmpleados->rowCount() -1, c, new QTableWidgetItem(Puesto));
+        c++;
+        ui->lEmpleados->setItem(ui->lEmpleados->rowCount() -1, c, new QTableWidgetItem(EstadoP));
     }
     ui->lEmpleados->resizeColumnsToContents();
     Empleados.finish();
 
+}
+
+bool admArea::buscaMatricula(QString mat)
+{
+    QSqlQuery queryBuscaMat;
+    queryBuscaMat.prepare("SELECT matricula FROM trabajador WHERE matricula='"+mat+"'");
+    queryBuscaMat.exec();
+    queryBuscaMat.next();
+
+    QString matBusca = queryBuscaMat.value(0).toString();
+
+    if(matBusca.isEmpty()){
+        return false;
+    }else{
+        return true;
+    }
 }
 
 void admArea::on_btnConfirmar_clicked()
@@ -98,32 +119,37 @@ void admArea::on_btnConfirmar_clicked()
     //Procederemos a verificar que los campos principales no estan vacios
     if(!mat.isEmpty() || !nom.isEmpty() || !ap.isEmpty() || !am.isEmpty()){
         if(clave == clave2){
-            //Procederemos a ejecutar el query para el insert
-            QMessageBox::StandardButton resp;
-            resp=QMessageBox::question(this,tr("Aviso"),tr("¿Estas seguro de crear este usuario?,"
-                                                           "\nEsta acción no se puede deshacer:"),
-                                  QMessageBox::Ok | QMessageBox::No);
-            if(resp==QMessageBox::Ok){
-                QSqlQuery query;
-                query.exec("INSERT INTO trabajador (matricula,nombre,apellidoP,apellidoM,correoE,"
-                           "celular,edad,contrasegna,nivel)"
-                           "VALUES ('"+mat+"','"+nom+"','"+ap+"','"+am+"','"+ce+"','"+cel+"','"+edad+"'"
-                           ",'"+clave+"','3')"
-                           );
-                query.finish();
-            }
+            if(!buscaMatricula(mat)){
+                //Procederemos a ejecutar el query para el insert
+                QMessageBox::StandardButton resp;
+                resp=QMessageBox::question(this,tr("Aviso"),tr("¿Estas seguro de crear este usuario?,"
+                                                               "\nEsta acción no se puede deshacer:"),
+                                      QMessageBox::Ok | QMessageBox::No);
+                if(resp==QMessageBox::Ok){
+                    QSqlQuery query;
+                    query.exec("INSERT INTO trabajador (matricula,nombre,apellidoP,apellidoM,correoE,"
+                               "celular,edad,contrasegna,nivel)"
+                               "VALUES ('"+mat+"','"+nom+"','"+ap+"','"+am+"','"+ce+"','"+cel+"','"+edad+"'"
+                               ",'"+clave+"','3')"
+                               );
+                    query.finish();
+                }
 
-            //Limpiamos las cajas de texto
-            ui->tMatricula->clear();
-            ui->tNombre->clear();
-            ui->tNombre->clear();
-            ui->tApaterno->clear();
-            ui->tAmaterno->clear();
-            ui->tCorreo->clear();
-            ui->tCelular->clear();
-            ui->sEdad->clear();
-            ui->tClave->clear();
-            ui->tClaveC->clear();
+                //Limpiamos las cajas de texto
+                ui->tMatricula->clear();
+                ui->tNombre->clear();
+                ui->tNombre->clear();
+                ui->tApaterno->clear();
+                ui->tAmaterno->clear();
+                ui->tCorreo->clear();
+                ui->tCelular->clear();
+                ui->sEdad->clear();
+                ui->tClave->clear();
+                ui->tClaveC->clear();
+            }else{
+                ui->tMatricula->clear();
+                QMessageBox::critical(this, "Error","Esta matricula ya se encuentra registrada");
+            }
         }
         else{
             ui->tClaveC->clear();
@@ -505,4 +531,48 @@ void admArea::inforUsuario(QString id){
 void admArea::on_btnCerrarSesion_clicked()
 {
     this->close();
+}
+
+bool admArea::buscaProfesorCurso(QString mat)
+{
+    QSqlQuery queryProfeCurso;
+    queryProfeCurso.prepare("SELECT matriculaProfesor FROM curso WHERE matriculaProfesor='"+mat+"'");
+    queryProfeCurso.exec();
+    queryProfeCurso.next();
+
+    QString buscaProfesor = queryProfeCurso.value(0).toString();
+
+    if(buscaProfesor.isEmpty()){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+void admArea::on_btnActualizarEdo_clicked()
+{
+    int Edo = ui->comboEdos->currentIndex()+1;
+
+    qDebug() << ui->cMatricula->text().isEmpty();
+
+
+    if(ui->cMatricula->text().isEmpty()){
+        QMessageBox::warning(this, "Aviso","Selecciona primero a algún trabajador");
+    }else{
+        if(!buscaProfesorCurso(ui->cMatricula->text())){
+            QMessageBox::StandardButton resp;
+            resp=QMessageBox::question(this,tr("Aviso"),tr("¿Estas seguro de actualizar el estado?,"
+                                                           "\nEsta acción no se puede deshacer:"),
+                                  QMessageBox::Ok | QMessageBox::No);
+            if(resp==QMessageBox::Ok){
+                QSqlQuery queryActualizaEdo;
+                queryActualizaEdo.prepare("UPDATE trabajador SET estadoTrabajador="+QString::number(Edo)+" WHERE matricula='"+ui->cMatricula->text()+"'");
+                queryActualizaEdo.exec();
+                QMessageBox::information(this, "Aviso", "El estado se ha actualizado");
+                cargarEmpleados();
+            }
+        }else{
+            QMessageBox::warning(this,"Aviso", "No se puede cambiar el estado. \n Debido a que el profesor tiene asignado algún curso.");
+        }
+    }
 }

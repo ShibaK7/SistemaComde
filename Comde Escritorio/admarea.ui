@@ -54,7 +54,7 @@ background-color: rgb(0, 47, 76);
 	border: 0px;
 }
 
-#btnConfirmar,#btnActualizar,#pushButton,#aceptarGR{
+#btnConfirmar,#btnActualizar,#pushButton,#aceptarGR,#btnActualizarEdo{
 	/*background-color: rgb(0,57,94);
 	background-color: rgb(0,143,189);*/
 	background-color: rgb(0, 92, 150);
@@ -63,17 +63,22 @@ background-color: rgb(0, 47, 76);
 	border-style:solid;
 }
 
-#btnConfirmar:hover,#btnActualizar:hover,#pushButton:hover,#aceptarGR:hover{
+#btnConfirmar:hover,#btnActualizar:hover,#pushButton:hover,#aceptarGR:hover,#btnActualizarEdo:hover{
 background-color: rgb(0, 127, 206)
 }
 
-#btnConfirmar:pressed,#btnActualizar:pressed,#pushButton:pressed,#aceptarGR:pressed{
+#btnConfirmar:pressed,#btnActualizar:pressed,#pushButton:pressed,#aceptarGR:pressed,#btnActualizarEdo:pressed{
 background-color: rgb(0, 58, 95);
+}
+
+QHeaderView::section {
+	font: 10pt &quot;Segoe UI Semibold&quot;;	
+	color: #002f4c;
 }
 </string>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab_Perfil">
     <attribute name="title">
@@ -313,11 +318,31 @@ background-color: rgb(0, 58, 95);
       <string/>
      </property>
     </widget>
+    <widget class="QLabel" name="label_32">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>180</y>
+       <width>141</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="imagenes_src.qrc">:/imagenes/icon-perfil.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
     <zorder>layoutWidget</zorder>
     <zorder>formLayoutWidget</zorder>
     <zorder>layoutWidget_2</zorder>
     <zorder>label_24</zorder>
     <zorder>label_FotoPerfil</zorder>
+    <zorder>label_32</zorder>
    </widget>
    <widget class="QWidget" name="tab_ProfesorAlta">
     <attribute name="title">
@@ -590,9 +615,9 @@ color: rgb(0, 109, 159);
     <widget class="QTableWidget" name="lEmpleados">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>130</y>
-       <width>431</width>
+       <x>60</x>
+       <y>120</y>
+       <width>621</width>
        <height>231</height>
       </rect>
      </property>
@@ -629,13 +654,18 @@ color: rgb(0, 109, 159);
        <string>Area</string>
       </property>
      </column>
+     <column>
+      <property name="text">
+       <string>Estado</string>
+      </property>
+     </column>
     </widget>
     <widget class="QPushButton" name="btnActualizar">
      <property name="geometry">
       <rect>
-       <x>840</x>
-       <y>480</y>
-       <width>151</width>
+       <x>780</x>
+       <y>690</y>
+       <width>171</width>
        <height>41</height>
       </rect>
      </property>
@@ -646,10 +676,10 @@ color: rgb(0, 109, 159);
     <widget class="QWidget" name="gridLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>520</x>
-       <y>130</y>
-       <width>471</width>
-       <height>326</height>
+       <x>60</x>
+       <y>380</y>
+       <width>621</width>
+       <height>361</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
@@ -693,7 +723,7 @@ color: rgb(0, 109, 159);
 color: rgb(136, 136, 136);</string>
         </property>
         <property name="text">
-         <string>cEdad</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -704,7 +734,7 @@ color: rgb(136, 136, 136);</string>
 color: rgb(136, 136, 136);</string>
         </property>
         <property name="text">
-         <string>cMatricula</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -818,8 +848,8 @@ color: rgb(0, 109, 159);
     <widget class="QLabel" name="label_29">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>40</y>
+       <x>60</x>
+       <y>50</y>
        <width>391</width>
        <height>31</height>
       </rect>
@@ -829,6 +859,70 @@ color: rgb(0, 109, 159);
      </property>
      <property name="text">
       <string>ACTUALIZE LA INFORMACIÓN</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboEdos">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>190</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI Semilight&quot;;</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>1. Activo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2. Inactivo</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_31">
+     <property name="geometry">
+      <rect>
+       <x>760</x>
+       <y>140</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 24 14pt &quot;Segoe UI Light&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Estado Profesor</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnActualizarEdo">
+     <property name="geometry">
+      <rect>
+       <x>780</x>
+       <y>250</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#btnConfirmarr:hover,#btnActualizarEdo:hover{
+background-color: rgb(0, 127, 206)
+}
+
+#btnConfirmar:pressed,#btnActualizarEdo:pressed{
+background-color: rgb(0, 58, 95);
+}</string>
+     </property>
+     <property name="text">
+      <string>Cambiar</string>
      </property>
     </widget>
    </widget>
@@ -898,7 +992,7 @@ color: rgb(0, 109, 159);
        <x>120</x>
        <y>300</y>
        <width>821</width>
-       <height>421</height>
+       <height>431</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
@@ -1633,18 +1727,18 @@ font: 63 9pt &quot;Segoe UI Semibold&quot;;</string>
   <zorder>tabWidget</zorder>
   <zorder>label_Add</zorder>
   <zorder>label_tipoUsuario</zorder>
-  <zorder>label_User</zorder>
   <zorder>line</zorder>
   <zorder>btnEdicion</zorder>
   <zorder>label_Edit</zorder>
   <zorder>label_18</zorder>
-  <zorder>btnPerfil</zorder>
   <zorder>label_19</zorder>
   <zorder>label_20</zorder>
   <zorder>btnAltaCursos</zorder>
   <zorder>btnGestionarRecursos</zorder>
   <zorder>label_Add_2</zorder>
   <zorder>label_Add_3</zorder>
+  <zorder>btnPerfil</zorder>
+  <zorder>label_User</zorder>
  </widget>
  <resources>
   <include location="imagenes_src.qrc"/>

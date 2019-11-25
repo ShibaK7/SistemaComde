@@ -57,6 +57,12 @@ private slots:
 
     void inforUsuario(QString mat);
 
+    bool buscaMatricula(QString mat);
+
+    void on_btnActualizarEdo_clicked();
+
+    bool buscaProfesorCurso(QString mat);
+
 private:
     Ui::admArea *ui;
 };

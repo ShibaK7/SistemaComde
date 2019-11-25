@@ -46,11 +46,10 @@ admGeneral::~admGeneral()
 
 void admGeneral::cargarEmpleados(){
     QSqlQuery Empleados;
-    QString Matricula, Nombre, Puesto;
-    Empleados.exec("SELECT T.matricula, T.nombre, T.apellidoP, T.apellidoM,T.correoE, T.celular, T.edad, NT.puesto "
+    QString Matricula, Nombre, Puesto, estadoT;
+    Empleados.exec("SELECT T.matricula, T.nombre, T.apellidoP, T.apellidoM,T.correoE, T.celular, T.edad, NT.puesto, E.estado "
                    "FROM trabajador AS T INNER JOIN nivel_trabajador AS NT ON T.nivel = NT.nivelTrabajador "
-                   "WHERE nivel = 2");
-
+                   "INNER JOIN estado as E ON T.estadoTrabajador=E.claveEstado WHERE nivel = 2 ORDER BY E.estado");
 
     int numEmpleados = ui->lEmpleados->rowCount();
     for(int i=0; i<numEmpleados;i++){
@@ -63,20 +62,39 @@ void admGeneral::cargarEmpleados(){
         Matricula = Empleados.value(0).toString();
         Nombre = Empleados.value(1).toString()+" "+Empleados.value(2).toString()+" "+Empleados.value(3).toString();
         Puesto = Empleados.value(7).toString();
-
+        estadoT = Empleados.value(8).toString();
         ui->lEmpleados->insertRow(ui->lEmpleados->rowCount());
         ui->lEmpleados->setItem(ui->lEmpleados->rowCount() -1, c, new QTableWidgetItem(Matricula));
         c++;
         ui->lEmpleados->setItem(ui->lEmpleados->rowCount() -1, c, new QTableWidgetItem(Nombre));
         c++;
         ui->lEmpleados->setItem(ui->lEmpleados->rowCount() -1, c, new QTableWidgetItem(Puesto));
+        c++;
+        ui->lEmpleados->setItem(ui->lEmpleados->rowCount() -1, c, new QTableWidgetItem(estadoT));
     }
     ui->lEmpleados->resizeColumnsToContents();
     Empleados.finish();
 }
 
-void admGeneral::on_btnConfirmar_clicked()
+bool admGeneral::buscaMatricula(QString mat)
 {
+    QSqlQuery queryBuscaMat;
+    queryBuscaMat.prepare("SELECT matricula FROM trabajador WHERE matricula='"+mat+"'");
+    queryBuscaMat.exec();
+    queryBuscaMat.next();
+
+    QString matBusca = queryBuscaMat.value(0).toString();
+
+    if(matBusca.isEmpty()){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+
+void admGeneral::on_btnConfirmar_clicked()
+{      
     QString mat,nom,ap,am,ce,cel,edad,clave,clave2,nivel;
     //Recuperando los valores de los campos del formulario
     mat = ui->tMatricula->text();
@@ -89,36 +107,40 @@ void admGeneral::on_btnConfirmar_clicked()
     clave = ui->tClave->text();
     clave2 = ui->tClaveC->text();
 
-
     //Procederemos a verificar que los campos principales no estan vacios
     if(!mat.isEmpty() || !nom.isEmpty() || !ap.isEmpty() || !am.isEmpty()){
         if(clave == clave2){
-            //Procederemos a ejecutar el query para el insert
-            QMessageBox::StandardButton resp;
-            resp=QMessageBox::question(this,tr("Aviso"),tr("¿Estas seguro de crear este usuario?,"
-                                                           "\nEsta acción no se puede deshacer:"),
-                                  QMessageBox::Ok | QMessageBox::No);
-            if(resp==QMessageBox::Ok){
-                QSqlQuery query;
-                query.exec("INSERT INTO trabajador (matricula,nombre,apellidoP,apellidoM,correoE,"
-                           "celular,edad,contrasegna,nivel)"
-                           "VALUES ('"+mat+"','"+nom+"','"+ap+"','"+am+"','"+ce+"','"+cel+"','"+edad+"'"
-                           ",'"+clave+"','2')"
-                           );
-                query.finish();
-            }
+            if(!buscaMatricula(mat)){
+                //Procederemos a ejecutar el query para el insert
+                QMessageBox::StandardButton resp;
+                resp=QMessageBox::question(this,tr("Aviso"),tr("¿Estas seguro de crear este usuario?,"
+                                                               "\nEsta acción no se puede deshacer:"),
+                                      QMessageBox::Ok | QMessageBox::No);
+                if(resp==QMessageBox::Ok){
+                    QSqlQuery query;
+                    query.exec("INSERT INTO trabajador (matricula,nombre,apellidoP,apellidoM,correoE,"
+                               "celular,edad,contrasegna,nivel, estadoTrabajador)"
+                               "VALUES ('"+mat+"','"+nom+"','"+ap+"','"+am+"','"+ce+"','"+cel+"','"+edad+"'"
+                               ",'"+clave+"','2',1)"
+                               );
+                    query.finish();
+                }
 
-            //Limpiamos las cajas de texto
-            ui->tMatricula->clear();
-            ui->tNombre->clear();
-            ui->tNombre->clear();
-            ui->tApaterno->clear();
-            ui->tAmaterno->clear();
-            ui->tCorreo->clear();
-            ui->tCelular->clear();
-            ui->sEdad->clear();
-            ui->tClave->clear();
-            ui->tClaveC->clear();
+                //Limpiamos las cajas de texto
+                ui->tMatricula->clear();
+                ui->tNombre->clear();
+                ui->tNombre->clear();
+                ui->tApaterno->clear();
+                ui->tAmaterno->clear();
+                ui->tCorreo->clear();
+                ui->tCelular->clear();
+                ui->sEdad->clear();
+                ui->tClave->clear();
+                ui->tClaveC->clear();
+            }else{
+                ui->tMatricula->clear();
+                QMessageBox::critical(this, "Error","Esta matricula ya se encuentra registrada");
+            }
         }
         else{
             ui->tClaveC->clear();
@@ -435,4 +457,27 @@ void admGeneral::on_pushButton_clicked()
 void admGeneral::on_btnAlta_clicked()
 {
     cargarEmpleados();
+}
+
+void admGeneral::on_btnActualizarEdo_clicked()
+{
+    int Edo = ui->comboEdos->currentIndex()+1;
+
+    qDebug() << ui->cMatricula->text().isEmpty();
+
+    if(ui->cMatricula->text().isEmpty()){
+        QMessageBox::warning(this, "Aviso","Selecciona primero a algún trabajador");
+    }else{
+        QMessageBox::StandardButton resp;
+        resp=QMessageBox::question(this,tr("Aviso"),tr("¿Estas seguro de actualizar el estado?,"
+                                                       "\nEsta acción no se puede deshacer:"),
+                              QMessageBox::Ok | QMessageBox::No);
+        if(resp==QMessageBox::Ok){
+            QSqlQuery queryActualizaEdo;
+            queryActualizaEdo.prepare("UPDATE trabajador SET estadoTrabajador="+QString::number(Edo)+" WHERE matricula='"+ui->cMatricula->text()+"'");
+            queryActualizaEdo.exec();
+            QMessageBox::information(this, "Aviso", "El estado se ha actualizado");
+            cargarEmpleados();
+        }
+    }
 }

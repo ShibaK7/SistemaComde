@@ -65,6 +65,10 @@ private slots:
 
     void on_btnAlta_clicked();
 
+    bool buscaMatricula(QString mat);
+
+    void on_btnActualizarEdo_clicked();
+
 private:
     Ui::admGeneral *ui;
     QSqlQuery *Query;

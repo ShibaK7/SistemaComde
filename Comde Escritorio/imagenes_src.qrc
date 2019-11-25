@@ -9,5 +9,6 @@
         <file>imagenes/edit.png</file>
         <file>imagenes/user.png</file>
         <file>imagenes/logout.png</file>
+        <file>imagenes/icon-perfil.png</file>
     </qresource>
 </RCC>
